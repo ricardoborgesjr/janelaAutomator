@@ -72,7 +72,7 @@ void enviaConfig(){
   JsonObject object = docOUTPUT.to<JsonObject>();
   
   object["ldr"] = valorLDR;
-  object["servo"] = map(posicao_servo, 0, 90, 0, 100);
+  object["servo"] = map(posicao_servo, 0, 90, 100, 0);
   object["abertura"] = abertura;
   object["fechamento"] = fechamento;
   object["auto"] = automatico;
@@ -87,11 +87,17 @@ void recebeConfig(){
   DeserializationError error = deserializeJson(docINPUT, Serial);
 
   if (!error) {
-    posicao_servo = map(docINPUT["servo"], 0, 100, 90, 0);
-    abertura = docINPUT["abertura"];
-    fechamento = docINPUT["fechamento"];
-    automatico = docINPUT["auto"];
-    //Serial.println("Sucesso");
+    int servo_tmp =  docINPUT["servo"];
+    int abertura_tmp = docINPUT["abertura"];
+    int fechamento_tmp = docINPUT["fechamento"];
+    
+    if(servo_tmp > 0 || abertura_tmp > 0 || fechamento_tmp > 0){
+      posicao_servo = map(docINPUT["servo"], 0, 100, 90, 0);
+      abertura = docINPUT["abertura"];
+      fechamento = docINPUT["fechamento"];
+      automatico = docINPUT["auto"];
+      //Serial.println("Sucesso");
+    }
   }
   /*else{
       Serial.println("Erro parse JSON "); 
