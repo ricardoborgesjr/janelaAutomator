@@ -2,7 +2,7 @@
 
 Componentes utilizado:
 - Arduino UNO/MEGA
-- M[odulo bluetooth HC-05
+- Módulo bluetooth HC-05
 - 1 sensor LDR
 - 1 micro servo motor 9g – SG90 
 - 2 resistores 300Ω
