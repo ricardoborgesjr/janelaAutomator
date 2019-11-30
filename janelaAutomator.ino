@@ -47,7 +47,7 @@ void loop() {
   }
 
   enviaConfig();
-  delay(250);
+  delay(10);
   
   
 }
