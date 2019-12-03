@@ -47,7 +47,7 @@ void loop() {
   }
 
   enviaConfig();
-  delay(10);
+  delay(250);
   
   
 }
@@ -58,7 +58,7 @@ void aberturaAutomatico(){
   //Serial.print("sensor = " );
   //Serial.println(valorLDR); 
 
-  posicao_servo = map(valorLDR, abertura, fechamento, 0, 90);
+  posicao_servo = map(valorLDR, fechamento, abertura, 0, 90);
 
   servo.write(posicao_servo);
 
